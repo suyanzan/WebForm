@@ -1,0 +1,22 @@
+添加清除 hasfile的功能   在loadPage（）函式中的屬性，当你重新整理時（因為頁面載入），它会被呼叫。
+
+或者也许不是放置功能，而是編寫實現所述功能的函式並从頁面載入中呼叫它。 指南代碼：
+https://t.codebug.vip/questions-978089.htm
+
+private void clearFileUpload()
+{
+    fileUpload.Dispose();
+}
+OR
+
+尝試在上傳檔案後立即處理問题。
+
+private void clearFileUpload()
+{
+    fileUpload.PostedFile.InputStream.Dispose();
+    // fileUpload.HasFile is now  false
+}
+2019-9-72 #
+我這樣做是為了清除FileUpload：
+
+fubanner.Attributes.Clear();
